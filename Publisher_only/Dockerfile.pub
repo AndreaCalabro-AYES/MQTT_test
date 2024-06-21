@@ -1,0 +1,14 @@
+# syntax=docker/dockerfile:1
+
+FROM python:3.10.3-slim
+
+
+RUN apt-get update && apt-get install -y python3-pip
+
+RUN pip install paho-mqtt
+
+WORKDIR /publisher
+
+COPY . .
+
+ENTRYPOINT [ "python3" , "publisher.py" ]
