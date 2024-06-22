@@ -4,8 +4,8 @@ import time
 
 
 # MQTT Config
-MQTT_BROKER_PORT = int(os.getenv("MQTT_BROKER_PORT", 1883))
-MQTT_BROKER_HOST = os.getenv("MQTT_BROKER_HOST", "mqtt_broker")
+MQTT_BROKER_PORT = int(os.getenv(key="MQTT_BROKER_PORT", default=1883))
+MQTT_BROKER_HOST = os.getenv(key="MQTT_BROKER_HOST", default="mqtt_broker")
 MQTT_TOPIC = "test_topic"
 
 publisher = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
