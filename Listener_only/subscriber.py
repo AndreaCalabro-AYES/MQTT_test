@@ -17,7 +17,7 @@ def on_connect(client, userdata, flags, reasonCode, properties=None):
       client.subscribe(MQTT_TOPIC)
       print(f"Subscribed to topic: {MQTT_TOPIC}", flush=True)
   else:
-    print("Connection failed with code  " + str(int(reasonCode)), flush=True)
+    print("Connection failed with code  " + str(reasonCode), flush=True)
 
 
 def on_message(client, userdata, msg):
