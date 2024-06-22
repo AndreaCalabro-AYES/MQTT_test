@@ -10,20 +10,24 @@ MQTT_TOPIC = "test_topic"
 
 publisher = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
 
+time.sleep(10)
+
 publisher.connect(
     host = MQTT_BROKER_HOST,
     port = MQTT_BROKER_PORT,
     keepalive = 60
 )
 
+print(f"Connected to broker at {MQTT_BROKER_HOST}: {MQTT_BROKER_PORT}", flush=True)
+
 while True:
     msg_body = "Mustard on the beat"
     publisher.publish(
         topic = MQTT_TOPIC,
-        payload= msg_body
+        payload= msg_body,
     )
-    print(f"Published {msg_body} in {MQTT_TOPIC}")
-    time.sleep(1)
+    print(f"Published {msg_body}, to {MQTT_TOPIC}", flush=True)
+    time.sleep(10)
 
 
 
